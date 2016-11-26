@@ -11,6 +11,9 @@ RUN yum -y groupinstall "Development Tools"
 RUN git clone https://github.com/tagliateller/tpcc-mysql.git
 
 # Compile tpcc-client
+RUN cd ~/src
+RUN make
+RUN cd ..
 
 #$ docker start -a some-app
 #PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
@@ -27,9 +30,6 @@ RUN git clone https://github.com/tagliateller/tpcc-mysql.git
 #MYSQL_ENV_MARIADB_VERSION=10.1.19+maria-1~jessie
 #HOME=/root
 
-# Datenbank anlegen
-CMD mysqladmin -u root --password=my-secret-pw -h $MYSQL_PORT_3306_TCP_ADDR create tpcc3000
-
-# Execute tpcc-load
-
-# Execute tpcc-start
+# im richtigen Verzeichnis ??
+ADD docker-entrypoint.sh
+CMD docker-entrypoint.sh
