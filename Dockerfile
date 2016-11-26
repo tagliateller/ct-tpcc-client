@@ -28,7 +28,7 @@ RUN git clone https://github.com/tagliateller/tpcc-mysql.git
 #HOME=/root
 
 # Datenbank anlegen
-RUN mysqladmin -u root --password=my-secret-pw -h $MYSQL_PORT_3306_TCP_ADDR create tpcc3000
+CMD mysqladmin -u root --password=my-secret-pw -h $MYSQL_PORT_3306_TCP_ADDR create tpcc3000
 
 # Execute tpcc-load
 
