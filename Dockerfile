@@ -7,11 +7,11 @@ RUN yum -y update
 RUN yum -y install mariadb mariadb-devel mariadb-lib git
 RUN yum -y groupinstall "Development Tools"
 
-# Clone repo
-RUN git clone https://github.com/tagliateller/tpcc-mysql.git
+# Clone repo to /opt
+RUN git clone https://github.com/tagliateller/tpcc-mysql.git /opt
 
 # Compile tpcc-client
-RUN cd ~/tpcc-mysql/src
+RUN cd /opt/tpcc-mysql/src
 RUN make
 
 #$ docker start -a some-app
