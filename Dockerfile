@@ -4,15 +4,13 @@ FROM centos
 RUN yum -y update
 
 # Install software 
-RUN yum -y install mariadb mariadb-devel mariadb-lib git
-RUN yum -y groupinstall "Development Tools"
+RUN yum -y install mariadb mariadb-devel mariadb-lib git && yum -y groupinstall "Development Tools"
 
 # Clone repo to /opt
 RUN git clone https://github.com/tagliateller/tpcc-mysql.git /opt/tpcc-mysql
 
 # Compile tpcc-client
-WORKDIR cwd /opt/tpcc-mysql/src
-RUN make
+RUN cd /opt/tpcc-mysql/src && make
 
 #$ docker start -a some-app
 #PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
