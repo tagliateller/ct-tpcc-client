@@ -8,7 +8,7 @@ RUN yum -y install mariadb mariadb-devel mariadb-lib git
 RUN yum -y groupinstall "Development Tools"
 
 # Clone repo to /opt
-RUN git clone https://github.com/tagliateller/tpcc-mysql.git /opt
+RUN git clone https://github.com/tagliateller/tpcc-mysql.git /opt/tpcc-mysql
 
 # Compile tpcc-client
 RUN cd /opt/tpcc-mysql/src
