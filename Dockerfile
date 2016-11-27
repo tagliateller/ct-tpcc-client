@@ -11,7 +11,7 @@ RUN yum -y groupinstall "Development Tools"
 RUN git clone https://github.com/tagliateller/tpcc-mysql.git /opt/tpcc-mysql
 
 # Compile tpcc-client
-RUN cwd /opt/tpcc-mysql/src
+WORKDIR cwd /opt/tpcc-mysql/src
 RUN make
 
 #$ docker start -a some-app
